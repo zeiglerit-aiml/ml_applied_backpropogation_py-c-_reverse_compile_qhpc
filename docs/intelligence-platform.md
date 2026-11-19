@@ -83,3 +83,28 @@ Encryption at rest is distinct from computation on ciphertext. Ordinary training
 ## Initial engineering sequence
 
 Start with a minimal tensor contract and reference neural network. Add a native implementation only after the reference behavior is testable. Build WSP inspection against the same model-state format so the learning and weight-intelligence subsystems share a common data contract. Add persistent learning and cross-model transfer only after comparison, validation, and rollback are in place.
+
+
+## Predictive intelligence and accelerated systems
+
+The platform's central objective is to improve prediction of future or unknown outcomes. The crystal-ball analogy expresses the ambition, not certainty. Support binary/multiclass classification, calibrated probabilistic prediction, regression, forecasting, ranking, time-to-event prediction, and anomaly detection. For binary decisions, select thresholds according to false-positive and false-negative costs rather than assuming 0.5 is always optimal.
+
+The learning loop defines the target and decision costs, establishes a leakage-resistant baseline, diagnoses errors, selects a task-appropriate loss, computes gradients through backpropagation, compares optimizers and schedules, evaluates on validation data, and uses WSP to relate parameter changes to measured behavioral changes. Preserve an untouched test set for final evaluation.
+
+### Python-to-C++ reverse compilation
+
+Investigate constrained graph capture from Python, typed tensor IR, forward and backward graph representations, operation fusion, shape/dtype specialization, memory planning, and C++/LLVM code generation. This is not arbitrary dynamic Python translation. Compare end-to-end results against optimized library implementations and include compilation, transfer, synchronization, and launch costs.
+
+### HPC execution
+
+The planner should select CPU SIMD/native C++, CUDA GPU, or distributed execution according to workload shape, arithmetic intensity, memory bandwidth, locality, batch size, latency, and communication overhead. Mixed precision is an optimization candidate only when gradient stability and prediction quality remain acceptable.
+
+### Vector database integration
+
+Use vector indexes for embedding retrieval, similar-case search, RAG context, candidate generation, and learned reranking. Retrieval metrics and downstream predictive lift must be evaluated separately. Track embedding versions and re-index when representation changes require it.
+
+### Quantum-classical research
+
+Treat quantum execution as an optional research backend. Explore variational circuits and simulator/QPU interfaces with appropriate gradient estimators such as parameter-shift rules. Compare against classical baselines and include sampling, circuit, and execution costs. Do not assume quantum advantage.
+
+All backends must preserve common input, preprocessing, model-version, output, uncertainty, and evaluation contracts.
