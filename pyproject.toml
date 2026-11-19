@@ -15,3 +15,13 @@ ml = ["torch>=2.2"]
 bindings = ["pybind11>=2.12"]
 quantum = ["pennylane>=0.38"]
 vector = ["faiss-cpu>=1.8"]
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.pytest.ini_options]
+pythonpath = ["python"]
+testpaths = ["tests"]
