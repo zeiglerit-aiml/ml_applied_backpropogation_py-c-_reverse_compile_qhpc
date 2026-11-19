@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybrid-ml-execution"
+version = "0.1.0"
+description = "Research scaffold for Python/native ML execution and backpropagation"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+ml = ["torch>=2.2"]
+bindings = ["pybind11>=2.12"]
+quantum = ["pennylane>=0.38"]
+vector = ["faiss-cpu>=1.8"]
