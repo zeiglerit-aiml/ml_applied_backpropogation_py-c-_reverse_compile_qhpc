@@ -51,6 +51,13 @@ A separate governance integration can authorize, evaluate, constrain, and verify
 
 ## Core research domains
 
+- **Predictive intelligence:** classification, probabilistic prediction, regression, forecasting, ranking, and anomaly detection, evaluated against unseen outcomes.
+- **Backpropagation and reverse compilation:** gradient computation and constrained Python graph lowering into typed IR and specialized C++/accelerator execution.
+- **Accelerated predictive systems:** measured CPU/GPU/distributed HPC execution, vector retrieval integration, and experimental quantum-classical workflows.
+
+See [Predictive Intelligence, Compilation, and Accelerated Systems](docs/predictive-intelligence-and-accelerated-systems.md) for the prediction objectives and backend implications.
+
+
 - **Adaptive learning and optimization:** task-aware loss selection, gradient validation, optimizer and learning-rate strategy comparison, error diagnostics, calibration, generalization, and controlled accuracy improvement.
 
 - **Tensor and neural computation:** tensor contracts, forward propagation, backpropagation, reverse-mode autodiff, optimizers, numerical stability, and computation graphs.
