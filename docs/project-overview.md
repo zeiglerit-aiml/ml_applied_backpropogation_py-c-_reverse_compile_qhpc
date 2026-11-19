@@ -54,6 +54,30 @@ The platform should expose an optimization strategy interface that records the t
 
 The initial implementation should provide a small baseline portfolio, not an unbounded automatic search. Start with a few appropriate losses and optimizers, gradient correctness tests, baseline metrics, and experiment records. Add adaptive strategy selection only when evidence shows it improves results.
 
+## Predictive intelligence objective
+
+The platform is designed to predict outcomes that have not yet been observed. The "crystal ball" analogy describes the ambition, not certainty: predictions are estimates that must be tested against unseen outcomes. Binary classification is an important use case, but the platform must also support multiclass and probabilistic classification, regression, forecasting, ranking, time-to-event prediction, and anomaly detection.
+
+For binary decisions, preserve calibrated probabilities where possible and select decision thresholds according to the costs of false positives and false negatives. Evaluate task-appropriate metrics such as precision, recall, F1, ROC-AUC or PR-AUC, calibration, expected decision cost, and subgroup performance. Use time-aware validation for temporal predictions and prevent future-data leakage.
+
+The learning loop defines the target and error costs, establishes a baseline, diagnoses errors, selects an appropriate loss, computes gradients through backpropagation, compares optimizers and schedules, validates changes, and uses WSP to inspect parameter changes alongside measured behavior. Lower training loss alone is not evidence of better future prediction.
+
+## Backpropagation and reverse compilation
+
+Backpropagation computes gradients of the selected loss through the model graph. Gradient-based optimizers use those gradients to update parameters. The compiler research path is:
+
+Python model/training definition → captured graph → typed tensor IR → forward/backward graph optimization → C++/LLVM code generation → CPU/GPU/HPC execution
+
+The project should investigate supported graph capture, forward and gradient IR, operation fusion, shape/dtype specialization, memory planning, and native kernel dispatch. This is constrained graph compilation, not arbitrary Python translation. Native execution must be compared with optimized numerical libraries using end-to-end measurements.
+
+## HPC, vector retrieval, and quantum-classical implications
+
+- **HPC:** map workloads to CPU SIMD, C++ kernels, CUDA, or distributed execution using tensor size, arithmetic intensity, memory locality, communication cost, and latency requirements. Mixed precision must be validated against numerical stability and predictive quality.
+- **Vector databases:** use embeddings and ANN retrieval for historical examples, contextual evidence, RAG, candidate generation, and reranking. Measure retrieval quality separately from downstream predictive lift; version embeddings and re-index when needed.
+- **Quantum-classical computing:** explore variational circuits and simulator/QPU adapters as optional research backends. Use method-appropriate gradients such as parameter-shift rules, compare against strong classical baselines, and include sampling and execution costs. Do not assume quantum advantage.
+
+Every backend must preserve the same input, preprocessing, model-version, output, uncertainty, and evaluation contracts. A faster execution path is not an improvement if it silently changes prediction semantics or degrades validated quality.
+
 ## Weight Space Intelligence
 
 WSP is a first-class research pillar, not a peripheral utility. Its initial responsibilities are:
