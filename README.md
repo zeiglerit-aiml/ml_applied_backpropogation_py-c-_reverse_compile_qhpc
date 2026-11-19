@@ -51,6 +51,8 @@ A separate governance integration can authorize, evaluate, constrain, and verify
 
 ## Core research domains
 
+- **Adaptive learning and optimization:** task-aware loss selection, gradient validation, optimizer and learning-rate strategy comparison, error diagnostics, calibration, generalization, and controlled accuracy improvement.
+
 - **Tensor and neural computation:** tensor contracts, forward propagation, backpropagation, reverse-mode autodiff, optimizers, numerical stability, and computation graphs.
 - **Weight Space Programming:** architecture-aware parameter inspection, model characterization, fingerprinting, comparison, alignment, transformation, optimization, and controlled weight-space experimentation.
 - **Persistent and continual learning:** versioned model state, checkpointing, adapters, incremental learning, replay, retention measurement, and catastrophic-forgetting evaluation.
@@ -68,6 +70,8 @@ A separate governance integration can authorize, evaluate, constrain, and verify
 - docs/project-overview.md and docs/intelligence-platform.md
 - python/hybrid_ml/, cpp/, compiler/, backends/
 - examples/, benchmarks/, tests/, security/
+
+See [Adaptive Learning and Optimization](docs/intelligence-platform.md#adaptive-learning-and-optimization) for the accuracy-improvement strategy.
 
 ## Initial implementation roadmap
 
